@@ -3,9 +3,8 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import Home from '../components/Home';
-import HelloWorld from '../components/HelloWorld';
-import Counter from '../components/Counter';
+import Home from '@/views/Home';
+import Create from '@/views/Create';
 
 const router = new VueRouter({
   pageRouting: true,
@@ -18,17 +17,10 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/hello',
-      component: HelloWorld,
+      path: '/create',
+      component: Create,
       meta: {
-        title: 'Hello World',
-      },
-    },
-    {
-      path: '/counter',
-      component: Counter,
-      meta: {
-        title: 'Counter',
+        title: 'Create Game',
       },
     },
     {path: '*', redirect: '/home'},
