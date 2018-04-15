@@ -1,6 +1,10 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar" title="Codewords - Home"/>
+    <ActionBar class="action-bar" :title="$route.meta.title">
+        <ActionItem
+          ios.systemIcon="9" ios.position="left"
+          android.systemIcon="ic_menu_share" android.position="actionBar" />
+    </ActionBar>
 
     <StackLayout class="form text-center">
       <Image src="~/images/logo-256x256.png" stretch="aspectFill" horizontalAlignment="center" width="150" height="150" />
