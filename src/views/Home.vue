@@ -1,12 +1,12 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar" title="Codewords"/>
+    <ActionBar class="action-bar" title="Codewords - Home"/>
 
     <StackLayout class="form text-center">
-      <Image src="~/images/logo-256x256.png" stretch="none" horizontalAlignment="center"/>
+      <Image src="~/images/logo-256x256.png" stretch="aspectFill" horizontalAlignment="center" width="150" height="150" />
       <Button class="btn btn-secondary" @tap="$router.push('/create')">Create Game</Button>
-      <TextField class="input input-border m-r-16 m-l-16" v-model="joinRoom" hint="Enter a room ID" maxLength="5" />
-      <Button class="btn btn-primary" @tap="$router.push('/create')">Join Game</Button>
+      <TextField class="input input-border m-r-20 m-l-20" v-model="joinRoom" hint="Enter a room ID" maxLength="5" />
+      <Button class="btn btn-primary" @tap="$router.push('/agent')">Join Game</Button>
     </StackLayout>
 
   </Page>
