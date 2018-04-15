@@ -30,7 +30,7 @@
         </GridLayout> -->
 
         <!-- submit -->
-        <Button class="btn btn-primary" @tap="$router.push('/create')">Create Game</Button>
+        <Button class="btn btn-primary" @tap="$router.push('/agent')">Create Game</Button>
       </StackLayout>
     </ScrollView>
   </Page>
