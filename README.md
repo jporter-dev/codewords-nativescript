@@ -1,6 +1,8 @@
 # Codenames
 
-> A NativeScript implementation of codenames.
+> A NativeScript implementation of [codenames](https://github.com/joshporter1/codenames).
+
+> _Note: This project is currently just a skeleton of the [original app](http://codenames.codecaffeinated.com/). The goal is to get this implementation 100% working. The current roadblock is SocketIO/websocket connectivity._
 
 ## Usage
 
@@ -23,7 +25,3 @@ npm run watch:<platform>
 # Clean the NativeScript application instance (i.e. rm -rf dist)
 npm run clean
 ```
-
-> When invoking the various npm scripts, omitting the platform will attempt to launch `tns` for both platforms, which will only work in a properly configured OSX environment.
-
-For detailed instructions, see https://github.com/nativescript-vue/vue-cli-template
