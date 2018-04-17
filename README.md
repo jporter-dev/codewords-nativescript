@@ -4,6 +4,8 @@
 
 > _Note: This project is currently just a skeleton of the [original app](http://codenames.codecaffeinated.com/). The goal is to get this implementation 100% working. The current roadblock is SocketIO/websocket connectivity._
 
+<img src="screenshots/app-sample.png" alt="Android and iOS Demo">
+
 ## Usage
 
 ``` bash
