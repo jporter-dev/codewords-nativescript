@@ -37,15 +37,18 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
     data () {
       return {
-        dictionaries: ['Standard', 'CAH', 'Simple'],
         selectedDictionary: '',
         teams: 2,
         board: 'normal'
       };
     },
+    computed: {
+      ...mapState(['dictionaries'])
+    }
   };
 </script>
 

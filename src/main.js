@@ -1,5 +1,4 @@
-require('nativescript-websockets');
-import VueNativeSock from 'vue-native-websocket'
+import Sockets from './sockets.js'
 import Vue from 'nativescript-vue';
 import router from './router';
 import store from './store';
@@ -8,9 +7,15 @@ import './styles.scss';
 // Uncommment the following to see NativeScript-Vue output logs
 Vue.config.silent = false;
 
-Vue.use(VueNativeSock, 'ws://localhost:5000', { store: store })
+// Vue.use(VueNativeSock, 'ws://localhost:5000', { store: store })
+Vue.use(Sockets, 'http://0.0.0.0:5000', store)
 
 new Vue({
   router,
   store,
+  created () {
+    this.$socketio.on('connect', () => {
+      this.$socketio.emit('list_dictionaries')
+    })
+  }
 }).$start();
