@@ -4,7 +4,7 @@
       <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
     </ActionBar>
     <StackLayout>
-      <GameBoard></GameBoard>
+      <GameBoard :isSpymaster="true"></GameBoard>
     </StackLayout>
   </Page>
 </template>

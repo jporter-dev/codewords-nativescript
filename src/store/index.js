@@ -39,11 +39,11 @@ const store = new Vuex.Store({
     SOCKET_LIST_DICTIONARIES: (state, message) => {
       state.dictionaries = message.dictionaries;
     },
-    set_turn(state, team) {
-      state.turn = team;
-    },
-    set_game(state, game) {
-      state.game = game;
+    SOCKET_MESSAGE (state, message) {
+      state.gameboard.game = message
+      state.gameboard.turn = message.starting_color
+      state.room = message.game_id
+      state.error = null
     },
     set_room(state, room) {
       state.room = room;

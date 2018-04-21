@@ -11,12 +11,13 @@ const state = {
 };
 
 const mutations = {
-  SOCKET_MESSAGE (state, message) {
-    state.game = Object.assign(state.game, message)
-    state.turn = message.starting_color;
-    state.room = message.game_id;
-    state.error = null;
+  set_game(state, game) {
+    state.game = game;
   },
+  set_turn(state, team) {
+    state.turn = team;
+  },
+
 };
 
 const getters = {
