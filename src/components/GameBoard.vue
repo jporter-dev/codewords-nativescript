@@ -20,27 +20,24 @@
     data () {
       return {
         flipped: {},
+        // dummy list of words
         words: [
           'toothbrush','mess','cow','sleep','plumber','zoo','population','plate','jade','hug','gray','cream','deep','houseboat','smith','jelly','goblin','ovation','boa','flower','monster','playground','outside','conversation','pilot',
         ],
       }
     },
-    computed: {
-      flippedClean () {
-        return Object.keys(this.flipped).join(',')
-      }
-    },
     methods: {
       getClass (word) {
+        // if tile flipped is blue
         if (this.flipped[word]) {
           return 'blue-tile'
         }
+        // default tile color
         return 'neutral-tile'
       },
       flipCard (card) {
+        // flip the card
         this.$set(this.flipped, card, !this.flipped[card])
-        console.log(this.flipped, card)
-        // flip da card
       }
     }
   };

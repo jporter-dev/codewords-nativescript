@@ -11,17 +11,22 @@
       <Button class="btn btn-secondary" @tap="$router.push('/create')">Create Game</Button>
       <TextField class="input input-border m-r-20 m-l-20" v-model="joinRoom" hint="Enter a room ID" maxLength="5" />
       <Button class="btn btn-primary" @tap="$router.push('/agent')">Join Game</Button>
+      <Label :text="connected" />
     </StackLayout>
 
   </Page>
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     data () {
       return {
         joinRoom: null,
       };
+    },
+    computed: {
+      ...mapState(['connected'])
     },
   };
 </script>

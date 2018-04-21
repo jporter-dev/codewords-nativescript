@@ -23,11 +23,17 @@ const store = new Vuex.Store({
     popupHides: 0
   },
   mutations: {
-    SOCKET_CONNECT(state) {
+    SOCKET_ONOPEN(state) {
       state.connected = true;
     },
-    SOCKET_DISCONNECT(state) {
+    SOCKET_ONCLOSE(state) {
       state.connected = false;
+    },
+    SOCKET_ONERROR(state, message) {
+      state.error = message.error;
+    },
+    SOCKET_ONMESSAGE(state, message) {
+      console.log(message)
     },
     SOCKET_JOIN_ROOM(state, message) {
       state.error = null;
@@ -36,9 +42,6 @@ const store = new Vuex.Store({
     SOCKET_LIST_DICTIONARIES: (state, message) => {
       console.log(message.dictionaries)
       state.dictionaries = message.dictionaries;
-    },
-    SOCKET_ERROR(state, message) {
-      state.error = message.error;
     },
     set_turn(state, team) {
       state.turn = team;
