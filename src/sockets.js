@@ -3,7 +3,7 @@ const SocketIO = require('nativescript-socket.io');
 export default {
   install (Vue, connection, store) {
     if (connection) {
-      const socketio = SocketIO.connect('http://0.0.0.0:5000');
+      const socketio = SocketIO.connect(connection);
       // allow access to socketio by this.$socketio
       Vue.prototype.$socketio = socketio;
 
