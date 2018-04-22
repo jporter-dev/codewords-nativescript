@@ -5,8 +5,7 @@ Vue.use(VueRouter);
 
 import Home from '@/views/Home';
 import Create from '@/views/Create';
-import Agent from '@/views/Agent';
-import Spymaster from '@/views/Spymaster';
+import Player from '@/views/Player';
 
 const router = new VueRouter({
   pageRouting: true,
@@ -29,7 +28,7 @@ const router = new VueRouter({
     },
     {
       path: '/:room/agent',
-      component: Agent,
+      component: Player,
       name: 'Agent',
       meta: {
         title: 'Agent',
@@ -37,7 +36,7 @@ const router = new VueRouter({
     },
     {
       path: '/:room/spymaster',
-      component: Spymaster,
+      component: Player,
       name: 'Spymaster',
       meta: {
         title: 'Spymaster',

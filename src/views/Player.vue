@@ -1,11 +1,9 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar" :title="$route.meta.title + ' - ' + $route.params.room">
+    <ActionBar class="action-bar" :title="$route.params.room">
       <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
     </ActionBar>
-    <StackLayout>
-      <GameBoard :isSpymaster="true"></GameBoard>
-    </StackLayout>
+    <GameBoard></GameBoard>
   </Page>
 </template>
 

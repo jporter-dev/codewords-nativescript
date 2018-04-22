@@ -1,18 +1,21 @@
 <template>
   <ScrollView orientation="vertical">
     <StackLayout>
-      <Label :text="Object.keys(gameboard.game.board).join(',')" />
+      <SegmentedBar class="segmented-bar m-x-5 m-t-10 m-b-5 p-x-10" v-model="selectedBarIndex" @selectedIndexChange="confirmSpymaster">
+        <SegmentedBarItem title="Agent"/>
+        <SegmentedBarItem title="Spymaster"/>
+      </SegmentedBar>
+      <FlexboxLayout class="game-grid">
+        <Label
+          v-for="(team,word) in words"
+          :key="word"
+          :text="word"
+          @tap="flipCard(word)"
+          class="game-tile text-center m-5 p-x-15 p-y-20"
+          :class="getClass(word)"
+        />
+      </FlexboxLayout>
     </StackLayout>
-    <FlexboxLayout class="game-grid p-5">
-      <Label
-        v-for="(team,word) in words"
-        :key="word"
-        :text="word"
-        @tap="flipCard(word)"
-        class="game-tile text-center m-5 p-x-15 p-y-20"
-        :class="getClass(word)"
-      />
-    </FlexboxLayout>
   </ScrollView>
 </template>
 
@@ -20,14 +23,17 @@
   import { mapState } from 'vuex';
 
   export default {
-    props: ['isSpymaster'],
     data () {
       return {
-        flipped: {},
+        selectedBarIndex: 0,
+        spymasterConfirmed: false,
       }
     },
     computed: {
       ...mapState(['gameboard', 'room']),
+      isSpymaster () {
+        return this.selectedBarIndex && this.spymasterConfirmed
+      },
       words () {
         return this.gameboard.game.board
       },
@@ -44,6 +50,18 @@
         }
         return className
       },
+      confirmSpymaster (o) {
+        if (this.selectedBarIndex == 1) {
+          confirm("Become spymaster?")
+          .then(result => {
+            if (result) {
+              this.spymasterConfirmed = true
+            } else {
+              this.selectedBarIndex = 0
+            }
+          })
+        }
+      },
       flipCard (card) {
         // check if player is a spymaster
         if (this.isSpymaster) {
@@ -52,7 +70,6 @@
           .then(result => {
             // flip the card
             if (result) {
-              this.$set(this.flipped, card, !this.flipped[card])
               const params = {
                 card: card,
                 room: this.room,
