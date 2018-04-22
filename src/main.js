@@ -8,7 +8,7 @@ import './styles.scss';
 Vue.config.silent = false;
 
 // Vue.use(VueNativeSock, 'ws://localhost:5000', { store: store })
-Vue.use(Sockets, 'http://0.0.0.0:5000', store)
+Vue.use(Sockets, 'http://192.168.1.241:5000', store)
 
 new Vue({
   router,

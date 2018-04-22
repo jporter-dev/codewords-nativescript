@@ -1,6 +1,6 @@
 <template>
   <Page class="page">
-    <ActionBar class="action-bar" :title="$route.meta.title + ' | ' + this.room">
+    <ActionBar class="action-bar" :title="$route.meta.title">
       <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" @tap="$router.push('/home')"/>
     </ActionBar>
 

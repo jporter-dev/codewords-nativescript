@@ -45,15 +45,23 @@
         return className
       },
       flipCard (card) {
-        // flip the card
+        // check if player is a spymaster
         if (this.isSpymaster) {
-          this.$set(this.flipped, card, !this.flipped[card])
-          const params = {
-            card: card,
-            room: this.room,
-          };
-          this.$socketio.emit('flip_card', params);
-
+          // confirm that they want to flip
+          confirm(`Flip "${card.trim()}" card?`)
+          .then(result => {
+            // flip the card
+            if (result) {
+              this.$set(this.flipped, card, !this.flipped[card])
+              const params = {
+                card: card,
+                room: this.room,
+              };
+              this.$socketio.emit('flip_card', params);
+            }
+          })
+        } else {
+          alert('Only spymasters can flip cards.')
         }
       }
     }
